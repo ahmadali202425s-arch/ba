@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: ba
+    runtime: docker
+    dockerfilePath: ./Dockerfile.prod
+    dockerContext: .
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: SECRET_KEY
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: ALLOWED_ORIGINS
+        sync: false
+      - key: REDIS_URL
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: STRIPE_API_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: SENTRY_DSN
+        sync: false
